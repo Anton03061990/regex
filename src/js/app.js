@@ -1,13 +1,6 @@
 export default class Validator {
-    constructor() {
-      this.reAllowable = /^[\w-]+$/i;
-      this.reThreeDigits = /\d{3}/;
-    }
-  
-    validateUsername(name) {
-      if (!this.reAllowable.test(name) || this.reThreeDigits.test(name)) {
-        return false;
-      }
-      return true;
+    
+  validateUsername(name) {
+      return /^[a-zA-Z]{1}[a-zA-Z0-9\-_]+[a-zA-Z]{1}$/.test(name) && !/^.\d{4,}.$/.test(name);
     }
 } 
